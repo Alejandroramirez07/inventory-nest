@@ -6,4 +6,4 @@ import { projectsController } from './projects.controller';
   controllers: [projectsController],
   providers: [ProjectService]
 })
-export class ChestModule {}
+export class ProjectModule {}

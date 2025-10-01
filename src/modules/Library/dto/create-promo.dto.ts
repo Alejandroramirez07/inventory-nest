@@ -1,7 +1,7 @@
 import { IsNotEmpty, IsString, IsArray, ArrayNotEmpty, IsInt } from 'class-validator'; // Importa validadores
 import { ApiProperty } from '@nestjs/swagger';
 
-export class Promo { // DTO para crear combos
+export class createPromo { // DTO para crear combos
   @IsNotEmpty()
   @IsString()
   @ApiProperty({ description: 'Nombre de la promo' }) // Agrega la propiedad de Swagger 

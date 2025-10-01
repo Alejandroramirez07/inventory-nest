@@ -4,7 +4,7 @@ export interface IProduct { // Producto individual
   price: number;
 }
 
-export interface ICombo { // Combo de productos
+export interface IPromo { // Promo de productos
   id: number;
   name: string;
   items: IProduct[];

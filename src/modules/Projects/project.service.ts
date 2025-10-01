@@ -57,11 +57,11 @@ export class ProjectService {
     return { deleted: true };
   }
 
-  combineHerbs(): IItem { // Combine green and red herbs to create a mixed herb
-    const green = this.projects.find(i => i.name === 'Hierba Verde' && i.quantity > 0); // Find green herb with quantity > 0
-    const red = this.projects.find(i => i.name === 'Hierba Roja' && i.quantity > 0); // Find red herb with quantity > 0
+  combineProjects(): IItem { // Combine green and red Projects to create a mixed herb
+    const green = this.projects.find(i => i.name === 'Security' && i.quantity > 0); // Find green herb with quantity > 0
+    const red = this.projects.find(i => i.name === 'Cloud' && i.quantity > 0); // Find red herb with quantity > 0
 
-    if (green && red) { // If both herbs are available
+    if (green && red) { // If both Projects are available
       green.quantity--; // Decrease quantity of green herb
       red.quantity--;// Decrease quantity of red herb
 
@@ -73,7 +73,7 @@ export class ProjectService {
       }
 
       if (this.projects.length >= this.maxSlots) {
-        throw new Error('El baúl está lleno, no se puede agregar la hierba mixta');
+        throw new Error('No es posible generar más proyectos');
       }
 
       const mixed: IItem = { 
