@@ -5,7 +5,7 @@ import { UpdateItemDto } from './dto/update-item.dto';
 
 @Injectable()
 export class ProjectService {
-  private maxSlots = 10; // Maximum number of item slots in the projects
+  private maxSlots = 10; // Máximo de proyectos permitidos
 
   private projects: IItem[] = [ // Sample items in the projects
     { id: 1, name: 'E commerce', type: 'web', quantity: 2, restrictedTo: 'Desarrollador' },
@@ -57,19 +57,19 @@ export class ProjectService {
     return { deleted: true };
   }
 
-  combineProjects(): IItem { // Combine green and red Projects to create a mixed herb
-    const green = this.projects.find(i => i.name === 'Security' && i.quantity > 0); // Find green herb with quantity > 0
-    const red = this.projects.find(i => i.name === 'Cloud' && i.quantity > 0); // Find red herb with quantity > 0
+  combineProjects(): IItem { // Combine web and security Projects to create a portfolio
+    const web = this.projects.find(i => i.name === 'Security' && i.quantity > 0); // Find web portfolio with quantity > 0
+    const security = this.projects.find(i => i.name === 'Cloud' && i.quantity > 0); // Find security portfolio with quantity > 0
 
-    if (green && red) { // If both Projects are available
-      green.quantity--; // Decrease quantity of green herb
-      red.quantity--;// Decrease quantity of red herb
+    if (web && security) { // If both Projects are available
+      web.quantity--; // Decrease quantity of web portfolio
+      security.quantity--;// Decrease quantity of security portfolio
 
-      if (green.quantity === 0) {
-        this.projects.splice(this.projects.indexOf(green), 1); // Remove green herb if quantity is 0
+      if (web.quantity === 0) {
+        this.projects.splice(this.projects.indexOf(web), 1); // Remove web portfolio if quantity is 0
       }
-      if (red.quantity === 0) {
-        this.projects.splice(this.projects.indexOf(red), 1); // Remove red herb if quantity is 0
+      if (security.quantity === 0) {
+        this.projects.splice(this.projects.indexOf(security), 1); // Remove security portfolio if quantity is 0
       }
 
       if (this.projects.length >= this.maxSlots) {

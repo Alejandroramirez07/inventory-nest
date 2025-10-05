@@ -22,9 +22,9 @@ export class projectsController {
     return this.projectsService.create(createItemDto);
   }
 
-  @Post('combine-herbs')
+  @Post('combine-Projects')
   combine() {
-    return this.projectsService.combineHerbs();
+    return this.projectsService.combineProjects();
   }
 
   @Delete(':id')

@@ -8,7 +8,7 @@ export class LibraryService implements OnModuleInit {// Implementa OnModuleInit 
   private products: IProduct[] = []; // Almacena productos
   private Promos: IPromo[] = []; // Almacena Promos
 
-  // 🔄 Precarga inicial
+  // Precarga inicial
   onModuleInit() {//
     this.createProduct({ name: 'Harry Potter', price: 30000 }); 
     this.createProduct({ name: 'Señor de los anillos', price: 40000 });
@@ -25,7 +25,7 @@ export class LibraryService implements OnModuleInit {// Implementa OnModuleInit 
     this.createPromo({ name: 'Promo 4', items: ['Nietzche Super hombre', 'Reflexiones de Marco Aurelio', '¿Dónde está la franja amarila?'] });
   }
 
-  // 🥐 Productos por nombre
+  // Productos por nombre
   createProduct(dto: CreateProductDto): IProduct { 
     const id = this.products.length + 1;// Genera un ID simple
     const { name, price } = dto;
@@ -56,7 +56,7 @@ export class LibraryService implements OnModuleInit {// Implementa OnModuleInit 
     return this.products;
   }
 
-  // 🍽️ Promos por número
+  // Promos por número
   createPromo(dto: { name: string; items: string[] }): IPromo { // Crea un Promo
     const id = this.Promos.length + 1; // Genera un ID simple
     const items = dto.items.map(name => this.findProductByName(name)); // Mapea nombres a productos
@@ -69,7 +69,6 @@ export class LibraryService implements OnModuleInit {// Implementa OnModuleInit 
   const total = Promo.items.reduce((sum, item) => sum + item.price, 0);     // Calcula el precio total
   return { Promo, total };
 }
-
 
   updatePromoByNumber(number: number, dto: Partial<{ name: string; items: string[] }>): IPromo { // Actualiza un Promo
     const Promo = this.findPromoByNumber(number); // Busca el Promo por número
